@@ -1,0 +1,42 @@
+/* Сторінки помилок і /status. Префікси err- та stx-, щоб не перетинатися з рештою стилів. */
+
+.err { min-height: 62vh; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 64px; padding-top: 72px; padding-bottom: 72px; }
+.err-code { font-size: clamp(120px, 22vw, 260px); font-weight: 300; line-height: .85; letter-spacing: -0.04em; color: var(--red); font-variant-numeric: tabular-nums; }
+.err-body { max-width: 460px; }
+.err-body h1 { font-size: 34px; font-weight: 500; font-style: italic; }
+.err-lead { margin: 14px 0 28px; font-size: 16px; line-height: 1.55; color: var(--muted); }
+.err-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.err-actions .btn-dark { display: inline-block; width: auto; margin-top: 0; padding: 12px 24px; border: 1px solid var(--ink); font-size: 12px; text-align: center; }
+.err-actions .btn-outline { display: inline-block; }
+.err-ref { margin-top: 20px; font-size: 12px; color: var(--muted); }
+
+.stx-head { padding-top: 56px; padding-bottom: 8px; }
+.stx-head h1 { font-size: 34px; font-weight: 500; }
+.stx-head p { margin-top: 10px; max-width: 520px; font-size: 15px; line-height: 1.55; color: var(--muted); }
+
+.stx { display: grid; grid-template-columns: 300px 1fr; gap: 48px; padding-top: 32px; padding-bottom: 72px; }
+.stx-group { margin: 22px 0 6px; font-size: 12px; color: var(--muted); }
+.stx-group:first-child { margin-top: 0; }
+.stx-item { display: flex; align-items: baseline; gap: 16px; width: 100%; padding: 12px 8px; background: none; border: 0; border-bottom: 1px solid var(--line); font-size: 14px; text-align: left; color: var(--ink); }
+.stx-item b { width: 40px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.stx-item span { color: var(--muted); }
+.stx-item:hover { background: var(--panel); }
+.stx-item[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.stx-item[aria-pressed="true"] span { color: rgba(255, 255, 255, .72); }
+.stx-item:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+.stx-detail { display: flex; flex-direction: column; gap: 12px; min-height: 380px; padding: 40px; background: var(--panel); }
+.stx-detail .err-code { font-size: clamp(100px, 14vw, 180px); }
+.stx-detail h2 { font-size: 28px; font-weight: 500; font-style: italic; }
+.stx-detail p { max-width: 520px; font-size: 15px; line-height: 1.55; color: var(--muted); }
+.stx-todo { margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--line); }
+.stx-todo strong { display: block; margin-bottom: 4px; font-size: 14px; font-weight: 500; color: var(--ink); }
+.stx-detail .btn-outline { align-self: flex-start; display: inline-block; margin-top: 8px; }
+
+@media (max-width: 860px) {
+  .err { grid-template-columns: 1fr; gap: 16px; padding-top: 40px; padding-bottom: 40px; }
+  .stx { grid-template-columns: 1fr; gap: 24px; }
+  .stx-detail { padding: 24px; min-height: 0; }
+}
+
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
