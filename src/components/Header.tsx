@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -15,18 +16,29 @@ export default function Header() {
 
       <nav className="nav">
         {nav.map((item) => (
-          <Link key={item} href={`/${item.toLowerCase()}`}>{item}</Link>
+          <Link key={item} href={`/${item.toLowerCase()}`}>
+            {item}
+          </Link>
         ))}
       </nav>
 
       <div className="header-icons">
-        <button aria-label="Search"><Search size={16} /></button>
-        <button aria-label="Wishlist"><Heart size={16} /></button>
+        <Link href="/search" aria-label="Search">
+          <Search size={16} />
+        </Link>
+
+        <Link href="/wishlist" aria-label="Wishlist">
+          <Heart size={16} />
+        </Link>
+
         <button aria-label="Cart" className="cart-btn" onClick={open}>
           <ShoppingCart size={16} />
           {count > 0 && <span className="badge">{count}</span>}
         </button>
-        <button aria-label="Account"><User size={16} /></button>
+
+        <Link href="/account" aria-label="Account">
+          <User size={16} />
+        </Link>
       </div>
     </header>
   );

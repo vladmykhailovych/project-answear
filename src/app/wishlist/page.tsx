@@ -1,0 +1,1 @@
+import WishlistPage from "@/pages/WishlistPage"; export default WishlistPage;

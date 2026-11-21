@@ -1,0 +1,1 @@
+import WomenPage from "@/pages/WomenPage"; export default WomenPage;

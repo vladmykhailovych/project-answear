@@ -1,0 +1,1 @@
+import ShoesPage from "@/pages/ShoesPage"; export default ShoesPage;

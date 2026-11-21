@@ -1,8 +1,15 @@
+
+import Link from "next/link";
 import type { Product } from "../data/products";
 import { formatPrice } from "../data/products";
 import AddToCartButton from "./AddToCartButton";
 
-type Panel = { eyebrow: string; title: string; text: string; button: string };
+type Panel = {
+  eyebrow: string;
+  title: string;
+  text: string;
+  button: string;
+};
 
 type Props = {
   eyebrow: string;
@@ -14,8 +21,15 @@ type Props = {
 };
 
 export default function ProductSection({
-  eyebrow, title, products, showSeeMore, banner, panel,
+  eyebrow,
+  title,
+  products,
+  showSeeMore,
+  banner,
+  panel,
 }: Props) {
+  const category = eyebrow.toLowerCase();
+
   return (
     <section className="container section">
       <div className="section-head">
@@ -23,7 +37,12 @@ export default function ProductSection({
           <span className="eyebrow">{eyebrow}</span>
           <h2>{title}</h2>
         </div>
-        {showSeeMore && <button className="btn-outline">See more →</button>}
+
+        {showSeeMore && (
+          <Link href={`/${category}`} className="btn-outline">
+            See more →
+          </Link>
+        )}
       </div>
 
       {banner && <img src={banner} alt={title} className="wide-banner" />}
@@ -32,12 +51,17 @@ export default function ProductSection({
         {products.map((p) => (
           <article key={p.id} className="card">
             <img src={p.image} alt={p.name} />
+
             <div className="card-info">
               <strong>{p.brand}</strong>
               <span>{p.name}</span>
               <small>{formatPrice(p.price)}</small>
+
               <div className="card-actions">
-                <button className="btn-dark">See More</button>
+                <Link href={`/${category}`} className="btn-dark">
+                  See More
+                </Link>
+
                 <AddToCartButton product={p} />
               </div>
             </div>
@@ -49,7 +73,10 @@ export default function ProductSection({
             <span className="eyebrow">{panel.eyebrow}</span>
             <h3>{panel.title}</h3>
             <p>{panel.text}</p>
-            <button className="btn-outline">{panel.button} →</button>
+
+            <Link href={`/${category}`} className="btn-outline">
+              {panel.button} →
+            </Link>
           </aside>
         )}
       </div>

@@ -1,0 +1,1 @@
+import MenPage from "@/pages/MenPage"; export default MenPage;

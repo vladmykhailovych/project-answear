@@ -1,0 +1,1 @@
+import KidsPage from "@/pages/KidsPage"; export default KidsPage;

@@ -1,0 +1,1 @@
+import BagsPage from "@/pages/BagsPage"; export default BagsPage;
